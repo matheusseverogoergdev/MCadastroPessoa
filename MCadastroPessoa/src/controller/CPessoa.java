@@ -98,8 +98,37 @@ public class CPessoa {
         for (Pessoa listPes: pessoas) {
             if (listPes.getCpf().equals(cpf)) {
                 listPes.setStatus((status==1));
+                break;
             }
         }
+    }
+    
+    public boolean deletarPessoa(Pessoa p) {
+        boolean remove = this.pessoas.remove(p);
+        return remove;
+    }
+    
+    public int pesquisarIdPessoa(String cpf) {
+        int idPessoa = 0;
+        for (Pessoa listPes: pessoas) {
+            if (listPes.getCpf().equals(cpf)) {
+                idPessoa = listPes.getIdPessoa();
+                break;
+            }
+        }
+        
+        return idPessoa;
+    }
+    
+    public String getNomePessoa(int idPessoa) {
+        String nome = null;
+        for (Pessoa listPes: pessoas) {
+            if (listPes.getIdPessoa() == idPessoa) {
+                nome = listPes.getNomePessoa();
+                break;
+            }
+        }
+        return nome;
     }
     
 }
